@@ -70,7 +70,7 @@ class Nodo
 class ArbolBK
 {   public:
     Nodo *Raiz;
-    map<int, Punto*> key_per_level;
+    map<int, Punto*> key_per_level; // llave por nivel <nivel, llave>;
     ArbolBK()
     {   Raiz=NULL;
     }
@@ -222,7 +222,7 @@ BOOL CALLBACK DlgMain(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             A.MostrarX(hdc,800,100,550, 0);
           //  A.MostrarR(hdc,pxi,pyi,pxf,pyf);
           //  Dibuja circulos concentricos
-            if (p_busqueda.x + p_busqueda.y > 0){
+            if (p_busqueda.x + p_busqueda.y > 0){ // siempre que el punto a buscar exista o sea diferente de 0;
                 for(int cc=0;cc<20;cc++)
                     CircleBresenham(hdc,p_busqueda.x,p_busqueda.y,cc*dd,1,RGB(color,0,0));
                 CircleBresenham(hdc,p_busqueda.x,p_busqueda.y,2,1,RGB(100,100,100)); // punto de busqueda
@@ -255,10 +255,12 @@ BOOL CALLBACK DlgMain(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
         return TRUE;
         case WM_INITDIALOG:
         {   pxi=10,pyi=50,pxf=pxi+450,pyf=pyi+450,dd=20,Toler=3;
+            /*
             A.Insertar(Punto(347,233));
             A.Insertar(Punto(335,279));
             A.Insertar(Punto(217,216));
             A.Insertar(Punto(249,258));
+            */
 
         }
         return TRUE;
