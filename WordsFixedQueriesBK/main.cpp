@@ -42,7 +42,7 @@ class Nodo // clase nodo que almacenara una palabra y un map de nodos hijos.
 class ArbolBK // clase arbol
 {   public:
     Nodo *Raiz; // declarando la raiz del arbol
-    map<int,string> key_per_level; // vector para indicar  la palabra clave para cada nivel;
+    map<int,string> key_per_level; // [new] vector para indicar  la palabra clave para cada nivel;
     ArbolBK()
     {   Raiz=NULL; // inicialmente el arbol tendra una raiz null, lo mismo a decir que aun no tiene palabras
     }
@@ -54,9 +54,9 @@ class ArbolBK // clase arbol
     }
     void Insertar(string S)
     {   if(Raiz==NULL){ // si el arbol esta vacio entonces creamos el nodo raiz con la palabra S;
-            Raiz=new Nodo(S);
-            key_per_level[0] = S;
-            Raiz->Sig[0] = new Nodo(S);
+            Raiz=new Nodo(S); // creamos el nodo raiz
+            key_per_level[0] = S; // indicamos que la raiz sera key en el nivel 0
+            Raiz->Sig[0] = new Nodo(S); // creamos un hijo [dist = 0] de la llave que tendra el mismo valor
         }
 
         else
@@ -68,18 +68,16 @@ class ArbolBK // clase arbol
         {   if((R->Sig).find(dist)==(R->Sig).end()) // buscamos si ya existe un nodo hijo que tenga la misma distancia que la palabra S
                 (R->Sig)[dist]=new Nodo(S); // si no existe un nodo con la misma distancia entonces agregamos el nodo(palabra) como hijo del nodo actual;
             else{
-                if(key_per_level[level+1] == ""){ // si aun no existe el key en ese nivel;
-                        key_per_level[level+1] = R->Sig[dist]->Palabra; // map level string;
-                        R->Sig[dist]->Sig[0] =  new Nodo(R->Sig[dist]->Palabra);
-                        Ins((R->Sig)[dist],S,level+1);
+                if(key_per_level[level+1] == ""){ // [new]  si aun no existe el key en ese nivel;
+                        key_per_level[level+1] = R->Sig[dist]->Palabra; // [new]  indicamos que la palabra sera llave en el nivel: level + 1;
+                        R->Sig[dist]->Sig[0] =  new Nodo(R->Sig[dist]->Palabra); // [new]  creamos el hijo[dist = 0] de el nodo
+                        Ins((R->Sig)[dist],S,level+1); // [new]  evaluamos la palabra S a partir de la llave;
                 }else{ // si ya existe un key;
-                    string nodo_p = R->Sig[dist]->Palabra;
-                    //int dist_nodo_key = EditDist(R->Sig[dist]->Palabra,key_per_level[level+1]);
-                    R->Sig[dist]->Palabra = key_per_level[level+1];
-                    Ins(R->Sig[dist],nodo_p,level+1);
-                    Ins((R->Sig)[dist],S,level+1);
+                    string nodo_p = R->Sig[dist]->Palabra; // [new]  guardamos el valor previo del nodo;
+                    R->Sig[dist]->Palabra = key_per_level[level+1]; // [new]  copiamos el valor de el nodo llave al nodo actual;
+                    Ins(R->Sig[dist],nodo_p,level+1); //  [new] evaluamos la palabra previa a partir de la llave;
+                    Ins((R->Sig)[dist],S,level+1);//  [new] evaluamos la palabra S a partir de la llave;
                 }
-                //Ins((R->Sig)[dist],S); // en caso que el nodo tenga un hijo con la misma distancia entonces reevaluamos la palabra con ese nodo;
             }
                 // hijo repetido.
 
@@ -131,10 +129,10 @@ class ArbolBK // clase arbol
         {   Cad[0]=((R->Palabra).c_str())[ii]; // copiamos ese caracter al inicio de Cad 2; ejm [p]erro -> "p ";
             TextOut(hdc,x+1,y+1+ii*14,Cad,1); // escribimos cad 2 en el cuadro de texto de resultados;
         }
-        if (R->Palabra == key_per_level[l]){
-            cout << R->Palabra << "\t"<< key_per_level[l] << endl;
-            char key_message[] = "[key]";
-            TextOut(hdc,x+1,y-15,key_message,strlen(key_message)); // escribimos cad 2 en el cuadro de texto de resultados;
+        if (R->Palabra == key_per_level[l]){ // [new]  si la palabra es igual a la llave en ese nivel
+            cout << R->Palabra << "\t"<< key_per_level[l] << endl;  //[new] 
+            char key_message[] = "[key]"; //  [new] agregamos un mensaje al nodo
+            TextOut(hdc,x+1,y-15,key_message,strlen(key_message)); // [new]   y escribimos ese mensaje en la cabeza del nodo;
 
         }
     }
@@ -212,7 +210,8 @@ BOOL CALLBACK DlgMain(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 }
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
-    A.Insertar("mesa");
+    // agregamos valores al arbol para propositos de test en el codigo.
+    A.Insertar("mesa"); 
     A.Insertar("masa");
     A.Insertar("casa");
     A.Insertar("misa");
