@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1627439433 source:c:\users\zeta\documents\www\fixedqueriesbk\main.cpp
+	<sstream>
+	<iostream>
+	<map>
+	<vector>
+	<windows.h>
+	<commctrl.h>
+	<stdio.h>
+	<string>
+	"resource.h"
+
+1627439233 c:\users\zeta\documents\www\fixedqueriesbk\resource.h
+
+1627439233 source:c:\users\zeta\documents\www\fixedqueriesbk\resource.rc
+	<windows.h>
+	<commctrl.h>
+	<richedit.h>
+	"resource.h"
+
+1627705875 source:c:\users\zeta\documents\www\pointsfixedqueriesbk\main.cpp
+	<iostream>
+	<cstdlib>
+	<vector>
+	<windows.h>
+	<math.h>
+	<map>
+	<windowsx.h>
+	<commctrl.h>
+	<stdio.h>
+	"resource.h"
+	<sstream>
+
+1627702630 c:\users\zeta\documents\www\pointsfixedqueriesbk\resource.h
+
+1627703501 source:c:\users\zeta\documents\www\pointsfixedqueriesbk\resource.rc
+	<windows.h>
+	<commctrl.h>
+	<richedit.h>
+	"resource.h"
+
+1627705876 source:e:\edddd\pointsfixedqueriesbk\main.cpp
+	<iostream>
+	<cstdlib>
+	<vector>
+	<windows.h>
+	<math.h>
+	<map>
+	<windowsx.h>
+	<commctrl.h>
+	<stdio.h>
+	"resource.h"
+	<sstream>
+
+1627702632 e:\edddd\pointsfixedqueriesbk\resource.h
+
+1627703502 source:e:\edddd\pointsfixedqueriesbk\resource.rc
+	<windows.h>
+	<commctrl.h>
+	<richedit.h>
+	"resource.h"
+
