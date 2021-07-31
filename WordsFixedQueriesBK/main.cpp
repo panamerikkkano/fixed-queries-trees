@@ -211,11 +211,13 @@ BOOL CALLBACK DlgMain(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
     // agregamos valores al arbol para propositos de test en el codigo.
+    /*
     A.Insertar("mesa"); 
     A.Insertar("masa");
     A.Insertar("casa");
     A.Insertar("misa");
     A.Insertar("rosa");
+    */
 
     hInst=hInstance; // instancia
     InitCommonControls(); // controles
