@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1627681546 source:c:\users\zeta\documents\www\fixedqueriesbk\main.cpp
+	<sstream>
+	<iostream>
+	<map>
+	<vector>
+	<windows.h>
+	<commctrl.h>
+	<stdio.h>
+	<string>
+	"resource.h"
+
+1627439233 c:\users\zeta\documents\www\fixedqueriesbk\resource.h
+
+1627439233 source:c:\users\zeta\documents\www\fixedqueriesbk\resource.rc
+	<windows.h>
+	<commctrl.h>
+	<richedit.h>
+	"resource.h"
+
+1627707322 source:e:\edddd\fixedqueriesbk\main.cpp
+	<sstream>
+	<iostream>
+	<map>
+	<vector>
+	<windows.h>
+	<commctrl.h>
+	<stdio.h>
+	<string>
+	"resource.h"
+
+1627439234 e:\edddd\fixedqueriesbk\resource.h
+
+1627439234 source:e:\edddd\fixedqueriesbk\resource.rc
+	<windows.h>
+	<commctrl.h>
+	<richedit.h>
+	"resource.h"
+
